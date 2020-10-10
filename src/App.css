@@ -1,38 +1,104 @@
 .App {
   text-align: center;
+  background-color: #909090;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+   background-color: black;
+   padding: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-areas: "clear clear div mult"
+                        "7 8 9 minus"
+                        "4 5 6 plus"
+                        "1 2 3 equal"
+                        "zero zero decimal equal";
+   grid-row-gap: 1px;
+   grid-column-gap: 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+   background-color: rgba(202,202,204,1);
+   border: none;
+   color: white;
+   font-size: 24px;
+   padding: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+   opacity: 0.9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#display {
+   text-align: right;
+   color: white;
+   font-size: 40px;
+   padding: 10px;
+}
+
+#clear {
+   grid-area: clear;
+   background-color: rgba(100,100,100,1);
+}
+
+#equals {
+   grid-area: equal;
+}
+
+#add, #subtract, #divide, #multiply, #equals {
+   background-color: rgba(247,126,27,1);
+}
+
+#divide {
+   grid-area: div;
+}
+
+#multiply {
+   grid-area: mult;
+}
+
+#zero {
+   grid-area: zero;
+}
+
+#add {
+   grid-area: plus;
+}
+
+#subtract {
+   grid-area: minus;
+}
+
+.formula {
+   color: white;
+   text-align: right;
+   padding: 0 10px;
+   font-size: 20px;
+}
+
+@media (min-width: 723px) {
+   .App {
+      padding-top: 50px;
+      box-sizing: border-box;
+   }
+   .container {
+      width: 50%; 
+      margin: 0 auto;
+   }
+}
+
+@media (min-width: 1023px) {
+   .App {
+      padding-top: 50px;
+      box-sizing: border-box;
+   }
+   .container {
+      width: 25%; 
+      margin: 0 auto;
+   }
 }
